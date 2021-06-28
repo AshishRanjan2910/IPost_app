@@ -1,0 +1,31 @@
+.Navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 10vh;
+    padding: 0.8rem;
+    background-color: rgb(rgb(255, 165, 0));
+    color: #fff;
+}
+
+.Brand {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    flex: 1;
+}
+
+.Nav-links {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    flex: 2;
+}
+
+.Nav-item {
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+}
