@@ -1,4 +1,5 @@
-import './/Normalize.css'
+import { BrowserRouter as  Router, Route, Switch } from 'react-router-dom';
+import './Normalize.css'
 import './Style.css';
 import Navbar from './Components/Navbar';
 import Home from './Pages/Home';
@@ -8,13 +9,17 @@ import Contact from './Pages/Contact';
 
 function App() {
   return (
-    <div>
+    <Router>
       <Navbar/>
-      <Home/>
-      <Projects/>
-      <Blogs/>
-      <Contact/>
-    </div>
+    <div>
+        <Switch>
+          <Route path = '/' exact component={Home} />
+          <Route path = '/Projects' component={Projects} />
+          <Route path = '/Blogs' component={Blogs} />
+          <Route path = '/Contact' component={Contact} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
