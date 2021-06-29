@@ -1,13 +1,6 @@
 {
   "users": [
     {
-      "name": "Ashish Ranjan",
-      "mobile": "1234567890",
-      "email": "ranjan@abc.com",
-      "message": "Hey! I'm looking of websites",
-      "id": 1
-    },
-    {
       "name": "Arpit Rajoria",
       "mobile": "1234567890",
       "email": "rajoria@abc.com",
@@ -29,32 +22,11 @@
       "id": 4
     },
     {
-      "name": "Avani Agarwal",
-      "mobile": "1234567890",
-      "email": "trial1@mail.com",
-      "message": "I'm interested",
-      "id": 5
-    },
-    {
-      "name": "Avani Agarwal",
-      "mobile": "1234567890",
-      "email": "trial1@mail.com",
-      "message": "I'm interested",
-      "id": 6
-    },
-    {
       "name": "Arya Datta",
-      "mobile": "1234567890",
+      "mobile": "1234567891",
       "email": "trial2@mail.com",
       "message": "Hi! I'm interested",
       "id": 7
-    },
-    {
-      "name": "Bhumika",
-      "mobile": "1234567890",
-      "email": "trial3@mail.com",
-      "message": "Hello! I'm interested.",
-      "id": 8
     }
   ]
 }

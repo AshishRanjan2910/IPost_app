@@ -16,6 +16,11 @@ const Leads = () => {
         setUsers(data.data)
     };
 
+    const deleteUser = async (id)=>{
+        await axios.delete(`http://localhost:3004/users/${id}`);
+        LoadUsers();
+    }
+
     // LoadUsers();
 
     return (
@@ -31,9 +36,9 @@ const Leads = () => {
                             <h3>Message: </h3>
                             <h4>{user.message}</h4>
                             <div className="user-options">
-                                <h3>View</h3>
-                                <h3>Edit</h3>
-                                <h3>Delete</h3>
+                                <Link to = {`/user/${user.id}`}>View</Link>
+                                <Link to = {`/user/edit/${user.id}`}>Edit</Link>
+                                <Link onClick = {()=>deleteUser(user.id)}>Delete</Link>
                             </div>
                         </div>
                     ))

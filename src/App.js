@@ -8,6 +8,8 @@ import Blogs from './Pages/Blogs';
 import Contact from './Pages/Contact';
 import SubmitDone from './Pages/SubmitDone';
 import Leads from './Pages/Leads';
+import User from './Pages/Users/User';
+import Edit from './Pages/Users/Edit';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path = '/Contact' component={Contact} />
           <Route path = '/SubmitDone' component={SubmitDone} />
           <Route path = '/Leads' component={Leads} />
+          <Route path = '/User/:id' exact component={User} />
+          <Route path = '/User/edit/:id' component={Edit} />
         </Switch>
       </div>
     </Router>
