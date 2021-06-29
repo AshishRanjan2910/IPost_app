@@ -1,9 +1,12 @@
-import React, {useState} from 'react'
-import './Contact.css'
+import React, {useState} from 'react';
+import './Contact.css';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const Contact = () => {
+    let history = useHistory();
 
-    const [user, userSet] = useState({
+    const [user, setUser] = useState({
         "name": '',
         "mobile": '',
         "email": '',
@@ -12,7 +15,15 @@ const Contact = () => {
 
     const { name, mobile, email, message } = user;
 
+    const onChangeHandler =(e)=>{
+        setUser({...user,[e.target.name]: e.target.value})
+    }
 
+    const onSubmitHandler= async (e)=>{
+        e.preventDefault();
+        await axios.post(`http://localhost:3004/users`, user);
+        history.push('/SubmitDone');
+    }
 
     return (
         <div>
@@ -22,6 +33,7 @@ const Contact = () => {
             <form
                 name="contact"
                 className="contact-form validate-form"
+                onSubmit={(e)=>onSubmitHandler(e)}
             >
                 <div
                 className="wrap-input validate-input"
@@ -33,6 +45,7 @@ const Contact = () => {
                     name="name"
                     placeholder="Full Name"
                     value = {name}
+                    onChange = {(e)=>onChangeHandler(e)}
                 />
                 </div>
 
@@ -46,6 +59,7 @@ const Contact = () => {
                     name="mobile"
                     placeholder="Mobile Number"
                     value = {mobile}
+                    onChange = {(e)=>onChangeHandler(e)}
                 />
                 </div>
 
@@ -59,6 +73,7 @@ const Contact = () => {
                     name="email"
                     placeholder="E-mail"
                     value= {email}
+                    onChange = {(e)=>onChangeHandler(e)}
                 />
                 </div>
 
@@ -72,6 +87,7 @@ const Contact = () => {
                     name="message"
                     placeholder="Your Message"
                     value = {message}
+                    onChange = {(e)=>onChangeHandler(e)}
                 ></textarea>
                 </div>
 
