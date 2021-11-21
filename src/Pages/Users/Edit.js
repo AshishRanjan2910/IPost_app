@@ -8,13 +8,14 @@ const Edit = () => {
     let {id} = useParams();
 
     const [user, setUser] = useState({
-        name: '',
-        mobile: '',
-        email: '',
-        message: '' 
+        "Invoice_Number": '',
+        "Bill_Value": '',
+        "IFSC_Code": '',
+        "Account_Number": '',
+        "Full_Invoice_Details": '' 
     })
 
-    const { name, mobile, email, message } = user;
+    const { Invoice_Number, Bill_Value, IFSC_Code, Account_Number, Full_Invoice_Details } = user;
 
     const inputChangeHandler =(e)=>{
         setUser({...user,[e.target.name]: e.target.value})
@@ -38,7 +39,7 @@ const Edit = () => {
 
     return (
         <div>
-            <h1 style={{ textAlign: 'center', margin: '1rem auto' }}>Contact Us</h1>
+            <h1 style={{ textAlign: 'center', margin: '1rem auto' }}>Invoice Details Form</h1>
         <div className="container-contact">
             <div className="wrap-contact">
             <form
@@ -48,56 +49,70 @@ const Edit = () => {
             >
                 <div
                 className="wrap-input validate-input"
-                data-validate="Please enter your name"
+                data-validate="Please enter the Invoice Number"
                 >
                 <input
                     className="input"
                     type="text"
-                    name="name"
-                    placeholder="Full Name"
-                    value = {name}
+                    name="Invoice_Number"
+                    placeholder="Invoice Number"
+                    value = {Invoice_Number}
                     onChange = {(e)=>inputChangeHandler(e)}
                 />
                 </div>
 
                 <div
                 className="wrap-input validate-input"
-                data-validate="Please enter your Mobile Number"
+                data-validate="Please enter Bill Value"
                 >
                 <input
                     className="input"
-                    type="tel"
-                    name="mobile"
-                    placeholder="Mobile Number"
-                    value = {mobile}
+                    type="num"
+                    name="Bill_Value"
+                    placeholder="Bill Value"
+                    value = {Bill_Value}
                     onChange = {(e)=>inputChangeHandler(e)}
                 />
                 </div>
 
                 <div
                 className="wrap-input validate-input"
-                data-validate="Please enter your email"
+                data-validate="Please enter IFSC Code"
                 >
                 <input
                     className="input"
                     type="text"
-                    name="email"
-                    placeholder="E-mail"
-                    value= {email}
+                    name="IFSC_Code"
+                    placeholder="IFSC Code"
+                    value= {IFSC_Code}
                     onChange = {(e)=>inputChangeHandler(e)}
                 />
                 </div>
 
                 <div
                 className="wrap-input validate-input"
-                data-validate="Please enter your message"
+                data-validate="Please enter Account Number"
+                >
+                <input
+                    className="input"
+                    type="num"
+                    name="Account_Number"
+                    placeholder="Account Number"
+                    value = {Account_Number}
+                    onChange = {(e)=>inputChangeHandler(e)}
+                />
+                </div>
+
+                <div
+                className="wrap-input validate-input"
+                data-validate="Please enter the all other Information related to Invoice"
                 >
                 <textarea
                     className="input"
                     type="text"
-                    name="message"
-                    placeholder="Your Message"
-                    value = {message}
+                    name="Full_Invoice_Details"
+                    placeholder="Full Invoice Details"
+                    value = {Full_Invoice_Details}
                     onChange = {(e)=>inputChangeHandler(e)}
                 ></textarea>
                 </div>

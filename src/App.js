@@ -1,15 +1,18 @@
 import { BrowserRouter as  Router, Route, Switch } from 'react-router-dom';
+// import 'react-bootstrap';
+import React from 'react';
 import './Normalize.css'
 import './Style.css';
 import Navbar from './Components/Navbar';
+import FIs from './Pages/FIs';
 import Home from './Pages/Home';
-import Projects from './Pages/Projects';
-import Blogs from './Pages/Blogs';
-import Contact from './Pages/Contact';
+import AboutUs from './Pages/AboutUs';
+import Invoice from './Pages/Invoice';
 import SubmitDone from './Pages/SubmitDone';
 import Leads from './Pages/Leads';
 import User from './Pages/Users/User';
 import Edit from './Pages/Users/Edit';
+
 
 function App() {
   return (
@@ -17,10 +20,10 @@ function App() {
       <Navbar/>
     <div>
         <Switch>
-          <Route path = '/' exact component={Home} />
-          <Route path = '/Projects' component={Projects} />
-          <Route path = '/Blogs' component={Blogs} />
-          <Route path = '/Contact' component={Contact} />
+          <Route exact path="/" component={Home}/>
+          <Route path = '/FIs' component={FIs} />
+          <Route path = '/AboutUs' component={AboutUs} />
+          <Route path = '/Invoice' component={Invoice} />
           <Route path = '/SubmitDone' component={SubmitDone} />
           <Route path = '/Leads' component={Leads} />
           <Route path = '/User/:id' exact component={User} />
