@@ -4,3 +4,7 @@
     align-items: center;
     min-height: 80vh;
 }
+.leadPage{
+    color: blue;
+    justify-content: center;
+}

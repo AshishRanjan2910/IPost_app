@@ -25,20 +25,22 @@ const Leads = () => {
 
     return (
         <div className="Leads">
-            <h1>Leads</h1>
+            <h1>Claimed Invoices</h1>
             <div className="user-cards">
                 {
                     users.map((user)=>(
                         <div className="user-card" key = {user.id}>
-                            <h3>Name: {user.name}</h3>
-                            <h3>Email id: {user.email}</h3>
-                            <h3>Contact no.: {user.mobile}</h3>
-                            <h3>Message: </h3>
-                            <h4>{user.message}</h4>
+                            <h3>Invoice Number: {user.Invoice_Number}</h3>
+                            <h3>Bill Value: {user.Bill_Value}</h3>
+                            <h3>IFSC Code: {user.IFSC_Code}</h3>
+                            <h3>Account Number: {user.Account_Number}</h3>
+                            <h3>Full Invoice Details: </h3>
+                            <h4>{user.Full_Invoice_Details}</h4>
+                            <h3>Previous Existence: {user.prevExistence}</h3>
                             <div className="user-options">
                                 <Link to = {`/user/${user.id}`}>View</Link>
-                                <Link to = {`/user/edit/${user.id}`}>Edit</Link>
-                                <Link onClick = {()=>deleteUser(user.id)}>Delete</Link>
+                                {/* <Link to = {`/user/edit/${user.id}`}>Edit</Link>
+                                <Link onClick = {()=>deleteUser(user.id)}>Delete</Link> */}
                             </div>
                         </div>
                     ))
