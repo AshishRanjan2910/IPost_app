@@ -1,40 +1,29 @@
-import React, {useState, useEffect} from 'react';
-import './Edit.css';
+import React, {useState} from 'react';
+import './Contact.css';
 import axios from 'axios';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-const Edit = () => {
+const Contact = () => {
     let history = useHistory();
-    let {id} = useParams();
 
     const [user, setUser] = useState({
-        name: '',
-        mobile: '',
-        email: '',
-        message: '' 
+        "name": '',
+        "mobile": '',
+        "email": '',
+        "message": '' 
     })
 
     const { name, mobile, email, message } = user;
 
-    const inputChangeHandler =(e)=>{
+    const onChangeHandler =(e)=>{
         setUser({...user,[e.target.name]: e.target.value})
     }
 
-    useEffect(() => {
-        LoadUser();
-    }, [])
-
-
     const onSubmitHandler= async (e)=>{
         e.preventDefault();
-        await axios.put(`http://localhost:3004/users/${id}`, user);
-        history.push('/Leads');
+        await axios.post(`http://localhost:3004/users`, user);
+        history.push('/SubmitDone');
     }
-
-    const LoadUser = async()=>{
-        const data = await axios.get(`http://localhost:3004/users/${id}`);
-        setUser(data.data)
-    };
 
     return (
         <div>
@@ -56,7 +45,7 @@ const Edit = () => {
                     name="name"
                     placeholder="Full Name"
                     value = {name}
-                    onChange = {(e)=>inputChangeHandler(e)}
+                    onChange = {(e)=>onChangeHandler(e)}
                 />
                 </div>
 
@@ -70,7 +59,7 @@ const Edit = () => {
                     name="mobile"
                     placeholder="Mobile Number"
                     value = {mobile}
-                    onChange = {(e)=>inputChangeHandler(e)}
+                    onChange = {(e)=>onChangeHandler(e)}
                 />
                 </div>
 
@@ -84,7 +73,7 @@ const Edit = () => {
                     name="email"
                     placeholder="E-mail"
                     value= {email}
-                    onChange = {(e)=>inputChangeHandler(e)}
+                    onChange = {(e)=>onChangeHandler(e)}
                 />
                 </div>
 
@@ -98,7 +87,7 @@ const Edit = () => {
                     name="message"
                     placeholder="Your Message"
                     value = {message}
-                    onChange = {(e)=>inputChangeHandler(e)}
+                    onChange = {(e)=>onChangeHandler(e)}
                 ></textarea>
                 </div>
 
@@ -114,4 +103,4 @@ const Edit = () => {
     )
 }
 
-export default Edit
+export default Contact

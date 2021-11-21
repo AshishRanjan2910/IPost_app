@@ -105,7 +105,6 @@ textarea {
 button,
 input {
   line-height: normal;
-  width: 4rem;
 }
 button,html input[type=button],/* 1 */
 input[type=reset],input[type=submit] {
